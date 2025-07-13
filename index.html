@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Free HTML Code Editor with Live Preview – No Login | Vishal Dembla</title>
+
+  <!-- SEO Meta Description -->
+  <meta name="description" content="Write and preview HTML code instantly with this free, browser-based HTML editor. Copy, export, and test HTML live — no login required.">
+
+  <!-- AI Summary Tags -->
+  <meta name="tool:type" content="Free HTML Code Editor">
+  <meta name="tool:function" content="Write and preview HTML code instantly in browser">
+  <meta name="tool:audience" content="Beginners, developers, and educators">
+  <meta name="tool:highlights" content="Live preview, copy/export, no login, mobile-friendly">
+  <meta name="tool:tech" content="Tailwind CSS and JavaScript">
+
+  <!-- Bootstrap for new footer -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome for social icons (optional, but in the template) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  
+  <!-- Tailwind + Fonts -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    textarea { font-family: monospace; }
+    iframe { border: 1px solid #e5e7eb; border-radius: 0.5rem; }
+
+    /* New Footer Styles */
+    .ezy__footer15 {
+      --bs-body-color: #28303b;
+      --bs-body-bg: rgb(246, 246, 246);
+      --ezy-theme-color: rgb(13, 110, 253);
+      --ezy-body-color-invert: rgb(255, 255, 255);
+      --ezy-hr-color: rgba(117, 117, 117, 0.39);
+
+      background-color: var(--bs-body-bg);
+      color: var(--bs-body-color);
+      padding: 60px 0;
+    }
+
+    @media (min-width: 768px) {
+      .ezy__footer15 {
+        padding: 80px 0;
+      }
+    }
+
+    .ezy__footer15 h2, .ezy__footer15 h5 {
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+    }
+
+    .ezy__footer15 p {
+      font-family: 'Inter', sans-serif;
+    }
+
+    .ezy__footer15-quick-links li {
+      list-style-type: none;
+      margin-bottom: 8px;
+    }
+
+    .ezy__footer15-quick-links li a {
+      color: var(--bs-body-color);
+      opacity: 0.7;
+      text-decoration: none;
+      transition: opacity 0.3s;
+    }
+
+    .ezy__footer15-quick-links li a:hover {
+      opacity: 1;
+    }
+
+    .ezy__footer15 hr {
+      background-color: var(--ezy-hr-color);
+    }
+  </style>
+</head>
+<body class="bg-white text-neutral-800 flex flex-col min-h-screen">
+
+  <!-- Header -->
+  <header class="p-5 border-b text-left bg-neutral-50 text-neutral-800 text-xl font-bold">
+    HTML Code Editor – Free & Instant
+  </header>
+
+  <!-- Main Tool -->
+  <main class="flex flex-col md:flex-row gap-4 p-6 flex-1 bg-white">
+    <!-- Editor -->
+    <div class="flex-1 flex flex-col">
+      <label for="editor" class="mb-2 font-semibold text-neutral-700 text-left">HTML Editor</label>
+      <textarea id="editor" class="w-full h-64 md:h-full p-3 border rounded-md text-sm" placeholder="Write your HTML here..."><!-- Try this -->
+<h1>Hello World</h1>
+<p>This is a live preview editor.</p></textarea>
+      <div class="mt-4 flex gap-2 flex-wrap">
+        <button onclick="copyCode()" class="px-4 py-2 rounded-md border bg-neutral-800 text-white hover:bg-neutral-900 text-sm">Copy Code</button>
+        <button onclick="clearEditor()" class="px-4 py-2 rounded-md border hover:bg-neutral-100 text-sm">Clear</button>
+        <button onclick="exportHTML()" class="px-4 py-2 rounded-md border hover:bg-neutral-100 text-sm">Export HTML</button>
+      </div>
+    </div>
+
+    <!-- Preview -->
+    <div class="flex-1">
+      <label class="mb-2 font-semibold text-neutral-700 block text-left">Live Preview</label>
+      <iframe id="preview" class="w-full h-64 md:h-full bg-white rounded-md"></iframe>
+    </div>
+  </main>
+
+  <!-- SEO Content: Intro, FAQs, Guide -->
+  <section class="max-w-7xl px-6 py-10 text-left">
+    <h2 class="text-2xl font-bold text-neutral-800 mb-4">What is this HTML Code Editor?</h2>
+    <p class="text-lg text-neutral-600">A clean, browser-based HTML editor with live preview. No login, no distractions. Perfect for beginners, developers, and content creators.</p>
+  </section>
+
+  <section class="max-w-7xl px-6 py-8 text-left">
+    <h2 class="text-2xl font-bold text-neutral-800 mb-6">Frequently Asked Questions</h2>
+    <div class="space-y-6 text-neutral-700">
+      <div><h3 class="font-semibold text-neutral-900">Who is this tool for?</h3><p>Students, developers, and anyone who wants to test or write HTML instantly.</p></div>
+      <div><h3 class="font-semibold text-neutral-900">Is it free?</h3><p>Yes. 100% free and open-source. No ads, no tracking, no login needed.</p></div>
+      <div><h3 class="font-semibold text-neutral-900">Can I export my code?</h3><p>Yes. Click “Export HTML” to download your code as a file.</p></div>
+      <div><h3 class="font-semibold text-neutral-900">Does it save my code?</h3><p>Not yet. A future version may support local saving.</p></div>
+    </div>
+  </section>
+
+  <section class="max-w-7xl px-6 py-10 text-left">
+    <h2 class="text-2xl font-bold text-neutral-800 mb-4">How to Use the HTML Code Editor</h2>
+    <ol class="list-decimal ml-5 space-y-2 text-neutral-700">
+      <li>Type your HTML in the editor panel.</li>
+      <li>Live preview appears instantly on the right.</li>
+      <li>Use Copy, Clear, or Export as needed.</li>
+    </ol>
+  </section>
+
+  <!-- New Footer -->
+  <section class="ezy__footer15 light mt-auto">
+    <div class="container">
+      <div class="row text-center text-sm-start mb-md-5">
+        <div class="col-lg-6">
+          <h2 class="fw-bold">HTML Code Editor</h2>
+          <div class="row">
+            <div class="col-12 col-lg-9">
+              <p class="ezy__footer15-text opacity-75 mt-3">
+                A clean, browser-based HTML editor with live preview. No login, no distractions. Perfect for beginners, developers, and content creators.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-lg-3 mt-4 mt-lg-0">
+          <h5 class="mb-3">Menu</h5>
+          <ul class="nav flex-column ezy__footer15-quick-links">
+            <li><a href="about.html">About</a></li>
+            <li><a href="faq.html">FAQs</a></li>
+            <li><a href="how-to.html">How-To</a></li>
+          </ul>
+        </div>
+        <div class="col-sm-6 col-lg-3 mt-4 mt-lg-0">
+          <h5 class="mb-3">Project</h5>
+          <ul class="nav flex-column ezy__footer15-quick-links">
+            <li><a href="https://github.com/vishal-dembla/html-code-editor" target="_blank">Open Source</a></li>
+            <li><a href="https://www.linkedin.com/in/vishaldembla1/" target="_blank">Vishal Dembla</a></li>
+          </ul>
+        </div>
+      </div>
+      <hr />
+      <div class="row d-flex justify-content-between align-items-center text-center text-lg-start">
+        <div class="col-12">
+          <p class="opacity-75 mb-0 mt-1">
+            Copyright © Vishal Dembla, All rights reserved. Built with Google AI Studio, ChatGPT & Lovable.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Script -->
+  <script>
+    const editor = document.getElementById('editor');
+    const preview = document.getElementById('preview');
+
+    function updatePreview() {
+      preview.srcdoc = editor.value;
+    }
+
+    function copyCode() {
+      navigator.clipboard.writeText(editor.value)
+        .then(() => alert('Code copied!'))
+        .catch(() => alert('Copy failed'));
+    }
+
+    function clearEditor() {
+      editor.value = '';
+      updatePreview();
+    }
+
+    function exportHTML() {
+      const blob = new Blob([editor.value], { type: 'text/html' });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = 'your-code.html';
+      a.click();
+      URL.revokeObjectURL(a.href);
+    }
+
+    editor.addEventListener('input', updatePreview);
+    window.onload = updatePreview;
+  </script>
+</body>
+</html>
